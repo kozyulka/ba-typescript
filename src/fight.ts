@@ -1,9 +1,13 @@
-'use strict';
+import IFighter from './Fighter/IFighter';
+import Fighter from './Fighter/Fighter';
+import IImprovedFighter from './ImprovedFighter/IImprovedFighter';
+import ImprovedFighter from './ImprovedFighter/ImprovedFighter';
 
-import { Fighter, IFighter } from './Fighter';
-import { ImprovedFighter, IImprovedFighter } from './ImprovedFighter';
-
-const fight = async (fighterOne: IFighter | IImprovedFighter, fighterTwo: IFighter | IImprovedFighter, ...points: number[]) => {
+const fight = async (
+  fighterOne: IFighter | IImprovedFighter,
+  fighterTwo: IFighter | IImprovedFighter,
+  ...points: number[]
+): never | Promise<void> => {
   if (!(fighterOne instanceof Fighter) || !(fighterTwo instanceof Fighter)) {
     throw new Error('Someone is missing! There should be two fighters');
   }
